@@ -1,2 +1,2 @@
 # IDX-Summer-2026-Internship
-print("Week 1")
+Week 1
