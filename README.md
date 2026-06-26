@@ -59,3 +59,35 @@ Generate summary statistics for each segment:
 ---
 ## Week 7 - Outlier Detection and Data Quality
 Extreme values in price, price per square footage, close to list ratio, or days on market can distort market averages and trends. You will implement a statistical method to identify and remove these records.
+### Method:  Interquartile Range (IQR)
+The IQR method removes records that fall outside a defined statistical range:
+
+```
+Q1 = df['ClosePrice'].quantile(0.25)
+Q3 = df['ClosePrice'].quantile(0.75)
+IQR = Q3 - Q1
+lower = Q1 - 1.5 * IQR
+upper = Q3 + 1.5 * IQR
+df = df[(df['ClosePrice'] >= lower) & (df['ClosePrice'] <= upper)]
+```
+### Skills learned
+* Statistical data cleaning
+* Outlier detection using IQR
+* Improving dataset reliability for analytics
+* Flagging vs. removing: building analysis-ready filtered datasets while preserving raw records
+
+---
+
+## Week 8-10 - Tableau Dashboard Development
+With clean, engineered datasets, you will import the data into Tableau and build interactive dashboards that tell the story of the housing market.
+
+---
+
+## Week 11-12 - Final Presentation and Market Intellegence Report
+The final week is dedicated to communicating your findings. You will produce a complete package: polished Tableau dashboards, a concise market intelligence report, and a live presentation.
+#### 1-Page Market Intelligence Report on any County, Zip Code, or City of Your Choice
+* Market Overview – median home price trends, days on market
+* Pricing Trends – price per square foot, sold-to-list ratio
+* Market Activity – new listings vs. homes sold, transaction volume
+* Competitive Landscape – top agents and brokerages by volume and units
+* Key Takeaways – 3–5 data-driven insights discovered during analysis
